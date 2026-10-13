@@ -2,7 +2,6 @@
 See original implementation at
 https://github.com/floodsung/LearningToCompare_FSL
 """
-
 from typing import Optional
 
 import torch

@@ -43,7 +43,7 @@ class PTMAP(FewShotClassifier):
         """
         query_features = self.compute_features(query_images)
 
-        support_assignments = nn.functional.one_hot(  # pylint: disable=not-callable
+        support_assignments = nn.functional.one_hot(
             self.support_labels, len(self.prototypes)
         )
         for _ in range(self.fine_tuning_steps):

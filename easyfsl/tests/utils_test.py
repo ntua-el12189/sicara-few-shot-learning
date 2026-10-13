@@ -238,16 +238,7 @@ class TestPredictEmbeddings:
         dataloader, expected_dataframe
     ):
         output_dataframe = predict_embeddings(dataloader, nn.Identity())
-        pd.testing.assert_series_equal(
-            output_dataframe.class_name, expected_dataframe.class_name
-        )
-        expected_dataframe_tensor = torch.stack(
-            expected_dataframe.embedding.values.tolist()
-        )
-        output_dataframe_tensor = torch.stack(
-            output_dataframe.embedding.values.tolist()
-        )
-        torch.testing.assert_close(output_dataframe_tensor, expected_dataframe_tensor)
+        pd.testing.assert_frame_equal(output_dataframe, expected_dataframe)
 
 
 class TestComputeAverageFeaturesFromImages:
